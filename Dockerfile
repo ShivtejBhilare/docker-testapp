@@ -1,0 +1,13 @@
+FROM node
+
+ENV MONGO_DB_USERNAME=admin \
+    MONGO_DB_PASSWORD=qwerty
+
+RUN mkdir -p testapp
+
+WORKDIR /testapp
+
+COPY . /testapp
+RUN npm install
+
+CMD [ "node","/testapp/server.js" ]
